@@ -4,14 +4,14 @@
 This repository contains a minimal Django-based Command-and-Control (C2) server and a complementary native Windows PoC client (C) used for lab testing and detection exercises.
 
 > ⚠️ **IMPORTANT — Safety & Ethics**  
-> This project is for **educational and defensive** use only. Do **not** run this code against systems you do not own or have explicit written permission to test. The native PoC (`poc/`) is dual-use and can be abused — treat it responsibly. See the section **“Native PoC (sensitivity & access)”** below.
+> This project is for **educational and defensive** use only. Do **not** run this code against systems you do not own or have explicit written permission to test. 
 
 ---
 
 ## Repo layout
 
 .
-├─ c2/ # Django application
+├─ c2/ 
 │ ├─ admin.py
 │ ├─ apps.py
 │ ├─ init.py
@@ -20,7 +20,7 @@ This repository contains a minimal Django-based Command-and-Control (C2) server 
 │ ├─ tests.py
 │ ├─ urls.py
 │ └─ views.py
-└─ poc/ # Native PoC (Windows C)
+└─ poc/ 
 ├─ main.c
 └─ capture.c
 
@@ -57,6 +57,7 @@ django-admin startproject dc2proj
 cd dc2proj
 # Move the `c2/` folder into the project root, then:
 # add "c2" to INSTALLED_APPS in dc2proj/settings.py
+# and add "path('c2/', include('c2.urls'))," to urlpatterns and "from django.urls import include,path" in dc2proj/urls.py
 python manage.py migrate
 python manage.py createsuperuser   # create admin user for operator UI
 python manage.py runserver 127.0.0.1:8000
