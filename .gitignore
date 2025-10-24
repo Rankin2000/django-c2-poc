@@ -1,0 +1,22 @@
+# Python / Django
+*.pyc
+__pycache__/
+.env
+.venv/
+*.sqlite3
+db.sqlite3
+/staticfiles/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Build artifacts (native)
+*.exe
+*.obj
+*.o
+*.pdb
+/build/
+
